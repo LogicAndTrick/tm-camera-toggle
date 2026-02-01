@@ -1,8 +1,17 @@
 [Setting category="General" name="Enabled"]
 bool S_Enabled = true;
 
-[Setting category="General" name="Toggle Button"]
+[Setting category="General" name="Enable Controller Toggle Button"]
+bool S_ButtonEnabled = true;
+
+[Setting category="General" name="Controller Toggle Button"]
 Button S_Button = Button::L1;
+
+[Setting category="General" name="Enable Keyboard Toggle Key"]
+bool S_KeyEnabled = false;
+
+[Setting category="General" name="Keyboard Toggle Key"]
+VirtualKey S_Key = VirtualKey::Space;
 
 enum CamChoice {
     Cam1, Cam1Alt,
@@ -33,11 +42,17 @@ bool S_PersistCameraBetweenMaps = true;
 
 
 
-[Setting category="2nd Button" name="Enable 2nd Button?"]
+[Setting category="2nd Button" name="Enable 2nd Controller Button?"]
 bool S_SecondButtonEnabled = false;
 
-[Setting category="2nd Button" name="2nd Toggle Button"]
+[Setting category="2nd Button" name="2nd Controller Toggle Button"]
 Button S_SecondButton = Button::L2;
+
+[Setting category="2nd Button" name="Enable 2nd Keyboard Key?"]
+bool S_SecondKeyEnabled = false;
+
+[Setting category="2nd Button" name="2nd Keyboard Toggle Key"]
+VirtualKey S_SecondKey = VirtualKey::F;
 
 [Setting category="2nd Button" name="Camera A"]
 CamChoice S_SecondCameraA = CamChoice::Cam1;

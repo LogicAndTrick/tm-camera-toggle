@@ -110,7 +110,20 @@ void Update(float dt) {
     // update in the menu so settings preview of button presses works. but we don't want to try and toggle the camera in the menu
     if (app.CurrentPlayground is null) return;
 
-    CheckForTogglePress();
+    auto btn1Pressed = S_ButtonEnabled && newButtonsPressed[S_Button];
+    auto btn2Pressed = S_SecondButtonEnabled && newButtonsPressed[S_SecondButton];
+    CheckForTogglePress(btn1Pressed, btn2Pressed);
+}
+
+void OnKeyPress(bool down, VirtualKey key) {
+    if (!S_Enabled || !down) return;
+
+    auto app = GetApp();
+    if (app.CurrentPlayground is null) return;
+
+    auto btn1Pressed = S_KeyEnabled && S_Key == key;
+    auto btn2Pressed = S_SecondKeyEnabled && S_SecondKey == key;
+    CheckForTogglePress(btn1Pressed, btn2Pressed);
 }
 
 void UpdateButtonPressed(uint value, Button button) {
@@ -121,9 +134,7 @@ uint toggleState = 0;
 uint toggleState2 = 0;
 CamChoice lastSetCamChoice = CamChoice::CamBackwards;
 
-void CheckForTogglePress() {
-    auto btn1Pressed = newButtonsPressed[S_Button];
-    auto btn2Pressed = S_SecondButtonEnabled && newButtonsPressed[S_SecondButton];
+void CheckForTogglePress(bool btn1Pressed, bool btn2Pressed) {
     CamChoice choice, current;
     if (btn1Pressed) {
         // trace('toggling camera');

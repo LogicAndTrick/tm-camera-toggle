@@ -3,7 +3,7 @@ bool KnownSafe = false;
 const string[] KnownSafeVersions = {
     "2024-03-19_14_47", "2024-02-26_11_36", "2023-09-19_19_09",
     "2023-09-25_23_51", "2024-04-30_16_52", "2024-06-20_19_53",
-    "2024-06-28_13_46"
+    "2024-06-28_13_46", "2026-01-26_15_06"
 };
 
 void CheckAndSetGameVersionSafe() {
@@ -33,7 +33,7 @@ void EnsureGameVersionCompatibility() {
 }
 
 void WarnBadGameVersion() {
-    NotifyWarning("Game version ("+TmGameVersion+") not marked as compatible with this version of the plugin -- camera persistence will be innactive.\n(Override in settings)");
+    NotifyWarning("Game version ("+TmGameVersion+") not marked as compatible with this version of the plugin -- camera persistence will be inactive.\n(Override in settings)");
 }
 
 bool requestStarted = true;
